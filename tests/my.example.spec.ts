@@ -49,7 +49,7 @@ test.describe.only("My first test suite", () => {
     );
   });
 
-  test("Assertions", async ({ page }) => {
+  test("Assertions @myTag", async ({ page }) => {
     // Good for redirects
     // Checking you are on the right page
     await page.goto("https://www.example.com");
