@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { loadHomePage, assertTitle } from "./../helpers";
 
 test("Simple basic test", async ({ page }) => {
   await page.goto("https://www.example.com");
@@ -15,7 +16,7 @@ test("Clicking on elements", async ({ page }) => {
   await expect(errorMessage).toContainText("Login and/or password are wrong.");
 });
 
-test.skip("Selectors", async ({ page }) => {
+test("Selectors", async ({ page }) => {
   // text
   await page.click("text=Some text");
 
@@ -34,7 +35,7 @@ test.skip("Selectors", async ({ page }) => {
   await page.click("//button");
 });
 
-test.describe.only("My first test suite", () => {
+test.describe("My first test suite", () => {
   test("Working with inputs", async ({ page }) => {
     await page.goto("http://zero.webappsecurity.com/index.html");
     await page.click("#signin_button");
@@ -65,4 +66,26 @@ test.describe.only("My first test suite", () => {
     await expect(nonExistingElement).not.toBeVisible();
     await expect(page.locator("h5")).not.toBeVisible();
   });
+});
+
+test.describe.parallel.only("Hooks", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://www.example.com");
+  });
+
+  test("Screenshots", async ({ page }) => {
+    await page.screenshot({ path: "screenshot.png", fullPage: true });
+  });
+
+  test("Single element screenshot", async ({ page }) => {
+    const element = await page.$("h1");
+    await element.screenshot({ path: "single_element.png" });
+  });
+});
+
+test("Custom helpers", async ({ page }) => {
+  await loadHomePage(page);
+  // Debug
+  // await page.pause();
+  await assertTitle(page);
 });

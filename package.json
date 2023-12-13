@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "tests:chrome": "playwright test --config=playwright.config.ts --project=chromium",
+    "tests:firefox":  "playwright test --config=playwright.config.ts --project=firefox",
+    "tests:webkit":  "playwright test --config=playwright.config.ts --project=webkit",
+    "tests:e2e":  "playwright test --config=e2e.config.ts --project=chromium"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
