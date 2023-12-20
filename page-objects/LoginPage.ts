@@ -22,9 +22,14 @@ export class LoginPage {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.submitButton.click();
+    await this.page.goto(
+      "http://zero.webappsecurity.com/bank/account-summary.html",
+    );
   }
 
   async assertErrorMessage() {
-    await expect(this.errorMessage).toContainText("Login and/or password are wrong.")
+    await expect(this.errorMessage).toContainText(
+      "Login and/or password are wrong.",
+    );
   }
 }

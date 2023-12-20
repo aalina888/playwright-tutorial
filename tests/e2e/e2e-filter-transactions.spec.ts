@@ -1,13 +1,18 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
+import { HomePage } from "../../page-objects/HomePage";
+import { LoginPage } from "../../page-objects/LoginPage";
 
 test.describe("Filter transactions", () => {
+  let homePage: HomePage;
+  let loginPage: LoginPage;
+
   test.beforeEach(async ({ page }) => {
-    await page.goto("http://zero.webappsecurity.com/index.html");
-    await page.click("#signin_button");
-    await page.fill("#user_login", "username");
-    await page.fill("#user_password", "password");
-    await page.click("text=Sign in");
-    await page.goto("http://zero.webappsecurity.com/bank/account-summary.html");
+    homePage = new HomePage(page);
+    loginPage = new LoginPage(page);
+
+    await homePage.visit();
+    await homePage.clickOnSignInButton();
+    await loginPage.login("username", "password");
   });
 
   test("Verify the results of each account", async ({ page }) => {
