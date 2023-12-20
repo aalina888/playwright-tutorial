@@ -1,6 +1,7 @@
 import { expect, Locator, Page } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class PaymentPage {
+export class PaymentPage extends AbstractPage {
   readonly page: Page;
   readonly payeeSelector: Locator;
   readonly payeeDetailsButton: Locator;
@@ -13,7 +14,7 @@ export class PaymentPage {
   readonly message: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.payeeSelector = page.locator("#sp_payee");
     this.payeeDetailsButton = page.locator("#sp_get_payee_details");
     this.payeeDetails = page.locator("#sp_payee_details");

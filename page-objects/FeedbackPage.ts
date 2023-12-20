@@ -1,6 +1,7 @@
 import { expect, Locator, Page } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class FeedbackPage {
+export class FeedbackPage extends AbstractPage {
   readonly page: Page;
   readonly nameInput: Locator;
   readonly emailInput: Locator;
@@ -11,6 +12,7 @@ export class FeedbackPage {
   readonly feedbackTitle: Locator;
 
   constructor(page: Page) {
+    super(page);
     this.page = page;
     this.nameInput = page.locator("#name");
     this.emailInput = page.locator("#email");

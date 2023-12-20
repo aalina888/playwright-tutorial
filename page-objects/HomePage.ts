@@ -1,13 +1,14 @@
 import { Locator, Page } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class HomePage {
+export class HomePage extends AbstractPage {
   readonly page: Page;
   readonly signInButton: Locator;
   readonly searchInput: Locator;
   readonly linkFeedback: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.signInButton = page.locator("#signin_button");
     this.searchInput = page.locator("#searchTerm");
     this.linkFeedback = page.locator("#feedback");

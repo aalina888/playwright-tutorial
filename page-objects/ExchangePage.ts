@@ -1,6 +1,7 @@
 import { expect, Locator, Page } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class ExchangePage {
+export class ExchangePage extends AbstractPage {
   readonly page: Page;
   readonly currencySelector: Locator;
   readonly sellRate: Locator;
@@ -12,7 +13,7 @@ export class ExchangePage {
   readonly message: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.currencySelector = page.locator("#pc_currency");
     this.sellRate = page.locator("#sp_sell_rate");
     this.amountInput = page.locator("#pc_amount");
