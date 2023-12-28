@@ -3,7 +3,6 @@ import { AbstractPage } from "./AbstractPage";
 
 export class LoginPage extends AbstractPage {
   // Define selectors
-  readonly page: Page;
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
   readonly submitButton: Locator;

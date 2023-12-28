@@ -9,7 +9,8 @@
     "tests:webkit": "playwright test --config=playwright.config.ts --project=webkit",
     "tests:e2e": "playwright test --config=e2e.config.ts --project=chromium",
     "tests:visual": "playwright test --config=visual.config.ts",
-    "tests:api": "playwright test --config=api.config.ts --project=chromium"
+    "tests:api": "playwright test --config=api.config.ts --project=chromium --reporter=list",
+    "jenkins:server": "java -jar jenkins.war --httpPort=8080 --enable-future-java"
   },
   "keywords": [],
   "author": "",

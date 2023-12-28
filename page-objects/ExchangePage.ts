@@ -2,7 +2,6 @@ import { expect, Locator, Page } from "@playwright/test";
 import { AbstractPage } from "./AbstractPage";
 
 export class ExchangePage extends AbstractPage {
-  readonly page: Page;
   readonly currencySelector: Locator;
   readonly sellRate: Locator;
   readonly amountInput: Locator;

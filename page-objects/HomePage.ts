@@ -2,7 +2,6 @@ import { Locator, Page } from "@playwright/test";
 import { AbstractPage } from "./AbstractPage";
 
 export class HomePage extends AbstractPage {
-  readonly page: Page;
   readonly signInButton: Locator;
   readonly searchInput: Locator;
   readonly linkFeedback: Locator;
