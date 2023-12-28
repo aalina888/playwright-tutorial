@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { loadHomePage, assertTitle } from "./../helpers";
+import { assertTitle, loadHomePage } from "./../helpers";
 
 test("Simple basic test", async ({ page }) => {
   await page.goto("https://www.example.com");
@@ -68,7 +68,7 @@ test.describe("My first test suite", () => {
   });
 });
 
-test.describe.parallel.only("Hooks", () => {
+test.describe.parallel("Hooks", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://www.example.com");
   });
