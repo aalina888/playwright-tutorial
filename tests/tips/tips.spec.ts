@@ -2,7 +2,7 @@ import { test } from "@playwright/test";
 import { getRandomNumber, getRandomString } from "../../utils/data-helpers";
 
 test.describe("Tips and Tricks section", () => {
-  test.only("TestInfo object", async ({ page }, testInfo) => {
+  test("TestInfo object", async ({ page }, testInfo) => {
     await page.goto("https://example.com");
     console.log(testInfo);
     console.log(testInfo.title);
